@@ -1,0 +1,34 @@
+<main class="w-full h-full flex flex-col items-center">
+  <div
+    class="w-full flex items-center justify-end flex-col bg-black text-white h-[400px] gap-[60px] pb-10"
+  >
+    <h1 class="text-red-500 text-[64px] text-header3">
+      KaTeX 문법 도우미, {{ title }}에 오신걸 환영합니다!
+    </h1>
+    <div
+      class="w-[800px] px-[30px] flex gap-4 items-center bg-white rounded-full"
+    >
+      <img src="./assets/images/search.svg" width="60" />
+      <input
+        type="text"
+        (keyup)="onKey($event)"
+        placeholder="Search..."
+        class="h-full text-title2 text-black placeholder:text-title2 outline-none"
+      />
+    </div>
+  </div>
+  <div class="pt-[80px]">
+    <div class="flex flex-col gap-[60px] items-center">
+      <span class="text-title3">
+        K-KaTeX에서의 모든 KaTeX 문법에 대한 정리는 다음과 같이 이루어집니다
+      </span>
+      <div>대충 테이블</div>
+      <button
+        class="bg-gray2 rounded-full flex gap-[10px] px-8 py-4 items-center"
+      >
+        <span class="text-title2 text-white">전체 문서 보러가기</span>
+        <img src="../../assets/images/arrow.svg" alt="" />
+      </button>
+    </div>
+  </div>
+</main>
