@@ -4,5 +4,5 @@ import { MainComponent } from './main/main.component';
 
 export const routes: Routes = [
   { path: 'header', component: HeaderComponent },
-  { path: 'main', component: MainComponent },
+  { path: 'main', title: 'K-KaTeX / 메인', component: MainComponent },
 ];
