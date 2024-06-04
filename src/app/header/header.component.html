@@ -1,14 +1,18 @@
 <header
   class="h-[60px] absolute w-full flex px-[300px] py-[10px] items-center bg-gray3 justify-between"
 >
-  <h1 class="text-header1 text-white">K-KaTeX</h1>
+  <a href="/main"><h1 class="text-white text-header1">K-KaTeX</h1></a>
   <div class="flex gap-6">
     <div
       class="flex justify-between items-center text-title2 w-[300px] text-white"
     >
-      <h2>북마크</h2>
-      <h2>카테고리</h2>
-      <h2>전체문서</h2>
+      <a href="/bookmark"><h2>북마크</h2></a>
+      <a href="/category">
+        <h2>카테고리</h2>
+      </a>
+      <a href="/all">
+        <h2>전체문서</h2>
+      </a>
     </div>
     <div
       class="relative flex gap-3 w-[300px] bg-white px-3 rounded-[32px] items-center"
@@ -16,7 +20,7 @@
       <img src="./assets/images/search.svg" />
       <input
         type="text"
-        class="w-full outline-none text-body4 text-black placeholder:text-title2 placeholder:text-gray2"
+        class="w-full text-black outline-none text-body4 placeholder:text-title2 placeholder:text-gray2"
         placeholder="Search..."
       />
     </div>
