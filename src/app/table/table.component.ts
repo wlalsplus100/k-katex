@@ -22,6 +22,7 @@ export class TableComponent {
       this.fetchByCategory(this.sortBy);
       this.fetchByMain(this.sortBy);
       this.fetchByBookmark(this.sortBy);
+      this.fetchByAll(this.sortBy);
     }
   }
 
@@ -40,6 +41,12 @@ export class TableComponent {
   fetchByBookmark(sortBy: string) {
     if (sortBy === 'bookmark') {
       this.data = this.grammarService.getByIsBookmarkAll();
+    }
+  }
+
+  fetchByAll(sortBy: string) {
+    if (sortBy === 'all') {
+      this.data = this.grammarService.getGrammars;
     }
   }
 }

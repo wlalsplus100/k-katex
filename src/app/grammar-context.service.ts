@@ -13,6 +13,10 @@ export class GrammarContextService {
     this.categorys = [...categorys];
   }
 
+  get getGrammars() {
+    return this.grammars;
+  }
+
   getBySearchKeyword(searchKeyword: string) {
     return this.grammars.filter((grammar) =>
       grammar.searchKeyword.includes(searchKeyword)
