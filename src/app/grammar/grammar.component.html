@@ -1,0 +1,47 @@
+<app-attr
+  [label]="data.searchKeyword"
+  class="border-r-[1px] border-gray2 min-h-[40px] flex items-center basis-[200px] min-w-[200px] pl-2.5"
+  *ngIf="isHead"
+></app-attr>
+<app-search-keyword
+  [keywords]="data.searchKeyword"
+  *ngIf="!isHead"
+  class="border-r-[1px] border-gray2 min-h-[40px] flex items-center w-[200px] flex-wrap gap-[5px] p-2.5"
+>
+</app-search-keyword>
+<app-attr
+  [label]="data.sign"
+  class="border-r-[1px] border-gray2 min-h-[40px] flex items-center basis-[200px] min-w-[200px] pl-2.5"
+></app-attr>
+<app-attr
+  [label]="data.usage || data.sign"
+  [katexRender]="true"
+  class="border-r-[1px] border-gray2 min-h-[40px] flex items-center basis-[200px] min-w-[200px] pl-2.5"
+  *ngIf="!isHead"
+></app-attr>
+<span
+  *ngIf="isHead"
+  class="border-r-[1px] border-gray2 min-h-[40px] flex items-center basis-[200px] min-w-[200px] pl-2.5"
+>
+  렌더링
+</span>
+<app-attr
+  [label]="data.usage"
+  class="border-r-[1px] border-gray2 min-h-[40px] flex items-center basis-[200px] min-w-[200px] pl-2.5"
+></app-attr>
+<app-attr
+  [label]="data.category"
+  class="border-r-[1px] border-gray2 min-h-[40px] flex items-center basis-[200px] min-w-[200px] pl-2.5"
+></app-attr>
+<div
+  class="border-r-[1px] border-gray2 w-[40px] min-h-[40px] flex items-center justify-center"
+  *ngIf="!isHead"
+>
+  <button (click)="bookmarkHandler()">
+    <img alt="" [src]="bookmarkSrc" />
+  </button>
+</div>
+<div
+  class="border-r-[1px] border-gray2 w-[40px] min-h-[40px]"
+  *ngIf="isHead"
+></div>
