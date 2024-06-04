@@ -1,4 +1,4 @@
-<main class="w-full h-full flex flex-col items-center">
+<main class="flex flex-col items-center w-full h-full">
   <div
     class="w-full flex items-center justify-end flex-col bg-black text-white h-[400px] gap-[60px] pb-10"
   >
@@ -9,24 +9,22 @@
       class="w-[800px] px-[30px] flex gap-4 items-center bg-white rounded-full h-[80px]"
     >
       <img src="./assets/images/search.svg" width="60" />
+      <!-- keyup은 내부에서 addEventlistner를 사용해 이벤트가 추가 되며, $event로 DOM event 객체을 받아온다 -->
       <input
         type="text"
-        (keyup)="onKey($event)"
+        (keyup)="onKeyUp($event)"
         placeholder="Search..."
-        class="h-full text-title2 text-black placeholder:text-title2 outline-none"
+        class="h-full text-black outline-none text-title2 placeholder:text-title2"
       />
     </div>
   </div>
   <div class="pt-[80px]">
-    <div class="flex flex-col gap-[60px] items-center">
-      <span class="text-title3">
-        K-KaTeX에서의 모든 KaTeX 문법에 대한 정리는 다음과 같이 이루어집니다
-      </span>
-      <div>대충 테이블</div>
+    <div class="flex flex-col items-center gap-4">
+      <app-table [sortBy]="tableItem" [label]="labels[0]"></app-table>
       <button
         class="bg-gray2 rounded-full flex gap-[10px] px-8 py-4 items-center"
       >
-        <span class="text-title2 text-white">전체 문서 보러가기</span>
+        <span class="text-white text-title2">전체 문서 보러가기</span>
         <img src="../../assets/images/arrow.svg" alt="" />
       </button>
     </div>
