@@ -1,0 +1,12 @@
+<main class="flex flex-col items-center w-full">
+  <div class="pt-[80px]">
+    <div class="text-header1">카테고리</div>
+    <ng-container *ngFor="let category of categorys">
+      <app-table
+        [label]="category"
+        [sortBy]="category"
+        class="flex flex-col items-center"
+      ></app-table>
+    </ng-container>
+  </div>
+</main>
