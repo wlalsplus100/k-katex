@@ -1,0 +1,16 @@
+<div class="flex flex-col items-center gap-[60px] pb-5">
+  <h1 class="text-title3">{{ label }}</h1>
+  <!--ngfor 을 사용해 data배열을 map처럼 순회한다 (반복문)-->
+  <div class="border-gray2 border-[5px] flex flex-col">
+    <app-grammar
+      [isHead]="true"
+      class="flex items-center border-b-[1px] border-gray2 min-h-[40px] h-[40px] justify-end text-label3"
+    ></app-grammar>
+    <ng-container *ngFor="let item of data">
+      <app-grammar
+        [data]="item"
+        class="flex items-stretch border-b-[1px] border-gray2 min-h-[40px] justify-end text-body3"
+      ></app-grammar>
+    </ng-container>
+  </div>
+</div>
