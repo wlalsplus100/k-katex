@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TableComponent } from '../table/table.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -15,7 +16,16 @@ export class MainComponent {
     'K-KaTeX에서의 모든 KaTeX 문법에 대한 정리는 다음과 같이 이루어집니다',
   ];
   tableItem = 'main';
-  onKeyUp(event: any) {
-    this.search = event.target.value;
+
+  constructor(private router: Router) {}
+
+  onKeyUp(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.router.navigate([`/search`], {
+        queryParams: { s: this.search },
+      });
+    }
+    const inputEl = event.target as HTMLInputElement;
+    this.search = inputEl.value;
   }
 }

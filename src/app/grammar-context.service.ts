@@ -17,10 +17,13 @@ export class GrammarContextService {
     return this.grammars;
   }
 
-  getBySearchKeyword(searchKeyword: string) {
-    return this.grammars.filter((grammar) =>
-      grammar.searchKeyword.includes(searchKeyword)
-    );
+  getBySearchKeyword(searchKeyword: string | null) {
+    if (!searchKeyword) throw Error('검색어가 없어요');
+    return this.grammars.filter((grammar) => {
+      return grammar.searchKeyword
+        .map((keyword) => keyword.includes(searchKeyword))
+        .includes(true);
+    });
   }
 
   getAllCategory() {
@@ -29,7 +32,6 @@ export class GrammarContextService {
 
   getByCategory(category: string) {
     return this.grammars.filter((grammar) => {
-      console.log(grammar.category === category);
       return grammar.category === category;
     });
   }

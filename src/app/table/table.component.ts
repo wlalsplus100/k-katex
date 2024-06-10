@@ -1,13 +1,15 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
 import { GrammarContextService } from '../grammar-context.service';
 import { GrammarComponent } from '../grammar/grammar.component';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { categorys, Grammar } from '../../constant/grammars';
+
+type Category = (typeof categorys)[number];
 
 @Component({
   selector: 'app-table',
   standalone: true,
-  imports: [GrammarComponent, NgFor],
+  imports: [GrammarComponent, NgFor, NgIf],
   templateUrl: './table.component.html',
   styleUrl: './table.component.css',
 })
@@ -19,6 +21,7 @@ export class TableComponent {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['sortBy']) {
+      this.fetchBySearchKeyword(this.sortBy);
       this.fetchByCategory(this.sortBy);
       this.fetchByMain(this.sortBy);
       this.fetchByBookmark(this.sortBy);
@@ -28,8 +31,18 @@ export class TableComponent {
 
   constructor(private grammarService: GrammarContextService) {}
 
+  fetchBySearchKeyword(keyword: string) {
+    try {
+      this.data = this.grammarService.getBySearchKeyword(keyword);
+    } catch (error: any) {
+      console.log(error.message);
+    }
+  }
+
   fetchByCategory(category: string) {
-    this.data = this.grammarService.getByCategory(category);
+    if (categorys.includes(category as Category)) {
+      this.data = this.grammarService.getByCategory(category);
+    }
   }
 
   fetchByMain(sortBy: string) {
