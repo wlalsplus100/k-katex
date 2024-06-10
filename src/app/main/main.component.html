@@ -9,7 +9,7 @@
       class="w-[800px] px-[30px] flex gap-4 items-center bg-white rounded-full h-[80px]"
     >
       <img src="./assets/images/search.svg" width="60" />
-      <!-- keyup은 내부에서 addEventlistner를 사용해 이벤트가 추가 되며, $event로 DOM event 객체을 받아온다 -->
+      <!-- keyup은 내부에서 addEventlistner를 사용해 이벤트가 추가 되며, $event로 event 모델을 받아온다 -->
       <input
         type="text"
         (keyup)="onKeyUp($event)"
@@ -21,12 +21,14 @@
   <div class="pt-[80px]">
     <div class="flex flex-col items-center gap-4">
       <app-table [sortBy]="tableItem" [label]="labels[0]"></app-table>
-      <button
-        class="bg-gray2 rounded-full flex gap-[10px] px-8 py-4 items-center"
-      >
-        <span class="text-white text-title2">전체 문서 보러가기</span>
-        <img src="../../assets/images/arrow.svg" alt="" />
-      </button>
+      <a href="/all">
+        <button
+          class="bg-gray2 rounded-full flex gap-[10px] px-8 py-4 items-center"
+        >
+          <span class="text-white text-title2">전체 문서 보러가기</span>
+          <img src="../../assets/images/arrow.svg" alt="" />
+        </button>
+      </a>
     </div>
   </div>
 </main>
